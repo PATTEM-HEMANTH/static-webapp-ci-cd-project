@@ -5,7 +5,6 @@
              stage('Checkout') {
                  steps {
                      git 'https://github.com/PATTEM-HEMANTH/static-webapp-ci-cd-project.git'
-'
                  }
              }
 
