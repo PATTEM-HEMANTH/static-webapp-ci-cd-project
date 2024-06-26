@@ -19,8 +19,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def app = docker.build("hemanthpattem/static-web-app/static-webapp:${env.BUILD_ID}")
-                    app.push("hemanthpattem/static-web-app")
+                  def app = docker.image("hemanthpattem/static-web-app/static-webapp:${env.BUILD_ID}")
+                        // Push the image with the build ID tag
+                        app.push("${env.BUILD_ID}")
+                        // Push the image with the latest tag
+                        app.push("latest")
                 }
             }
         }
