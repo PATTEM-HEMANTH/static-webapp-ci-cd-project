@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def app = docker.build("hemanthpattem/static-webapp:${env.BUILD_ID}", "-f Dockerfile")
+                    def app = docker.build("hemanthpattem/static-webapp:${env.BUILD_ID}", "-f docker/Dockerfile")
                 }
             }
         }
