@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def app = docker.build("hemanthpattem/static-web-app/static-webapp:${env.BUILD_ID}")
+                    def app = docker.build("hemanthpattem/static-webapp:${env.BUILD_ID}")
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
                     echo $dockerPassword | docker login -u $dockerUsername --password-stdin
                     """
 
-                    def app = docker.image("hemanthpattem/static-web-app/static-webapp:${env.BUILD_ID}")
+                    def app = docker.image("hemanthpattem/static-webapp:${env.BUILD_ID}")
                     app.push("${env.BUILD_ID}")
                     app.push("latest")
 
