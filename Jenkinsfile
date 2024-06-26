@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     def app = docker.build("hemanthpattem/static-web-app/static-webapp:${env.BUILD_ID}")
-                    app.push("hemanthpattem/static-web-app/static-webapp:latest")
+                    app.push("hemanthpattem/static-web-app")
                 }
             }
         }
