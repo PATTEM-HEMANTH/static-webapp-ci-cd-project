@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/PATTEM-HEMANTH/static-webapp-ci-cd-project.git'
+               git branch: 'main', url: 'https://github.com/PATTEM-HEMANTH/static-webapp-ci-cd-project.git'
             }
         }
 
         stage('Build') {
             steps {
                 script {
-                    def app = docker.build("PATTEM-HEMANTH/static-webapp:${env.BUILD_ID}")
+                    def app = docker.build("hemanthpattem/static-webapp:${env.BUILD_ID}")
                 }
             }
         }
@@ -19,8 +19,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def app = docker.build("PATTEM-HEMANTH/static-webapp:${env.BUILD_ID}")
-                    app.push("PATTEM-HEMANTH/static-webapp:latest")
+                    def app = docker.build("hemanthpattem/static-webapp:${env.BUILD_ID}")
+                    app.push("hemanthpattem/static-webapp:latest")
                 }
             }
         }
