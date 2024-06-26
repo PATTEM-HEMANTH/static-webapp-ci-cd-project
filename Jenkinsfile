@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',  url: 'https://github.com/PATTEM-HEMANTH/static-webapp-ci-cd-project.git'
+                git clone 'https://github.com/PATTEM-HEMANTH/static-webapp-ci-cd-project.git'
             }
         }
 
